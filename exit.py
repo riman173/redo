@@ -12,12 +12,12 @@ class Exit(pygame.sprite.Sprite):
             Exit.image = pygame.image.load(imgpath).convert_alpha()
         self.image = Exit.image
         self.rect = self.image.get_rect()
-        self.initialpos = self.pos = self.rect.center = exitFormat.rect.center
+        self.initialpos = self.disp = self.rect.center = exitFormat.rect.center
     
     def update(self, offset):
-        self.pos = [a + b for a,b in zip(self.pos, offset)]
-        self.rect.center = self.pos
+        self.disp = [a + b for a,b in zip(self.initialpos, offset)]
+        self.rect.center = self.disp
     
     def reset(self):
-        self.pos = self.initialpos
-        self.rect.center = self.initialpos
+        self.disp = self.initialpos
+        self.rect.center = self.disp

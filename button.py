@@ -14,10 +14,10 @@ class Button(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.activated = False
         self.group = buttonFormat.sets
-        self.initialpos = self.pos = self.rect.midbottom = buttonFormat.rect.midbottom
+        self.initialpos = self.disp = self.rect.midbottom = buttonFormat.rect.midbottom
     def update(self, offset):
-         self.pos = [a + b for a,b in zip(self.pos, offset)]
-         self.rect.midbottom = self.pos
+         self.disp = [a + b for a,b in zip(self.initialpos, offset)]
+         self.rect.midbottom = self.disp
          
     def activate(self):
         self.activated = True
@@ -28,5 +28,5 @@ class Button(pygame.sprite.Sprite):
         self.image = Button.images['inactive']
     
     def reset(self):
-        self.pos = self.initialpos
-        self.rect.midbottom = self.pos
+        self.disp = self.initialpos
+        self.rect.midbottom = self.disp

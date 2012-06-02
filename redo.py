@@ -107,7 +107,7 @@ class RedoGame():
     def update(self):
         """Updates objects in the scene."""
         #sprites.update()
-        off = self.camera.update(self.playerSprite.pos)
+        off = self.camera.update(self.playerSprite.disp)
         self.actorsprites.update(off)
         self.updateButtons(off)
         self.updateRecorders(off)
@@ -117,10 +117,9 @@ class RedoGame():
     def draw(self):
         self.sprites.clear(self.screen, self.background)
         things = self.sprites.draw(self.screen)
-        #self.sprites.clear(self.screen,self.background)
         pygame.display.update(things)
         
-        pygame.display.flip()
+        #pygame.display.flip()
         #self.sprites.clear(self.screen,self.background)
 
     def levelInit(self, i):
